@@ -3,46 +3,48 @@
   import posts from '../mocks/posts.json';
 
   const navigate = useNavigate();
-  let newPost = {title: "", description: ""}; 
-  let newPosts = posts.slice(0);
-
   const showPostDetails = id => navigate(`/post/${id}`, )
-  const savePost = () => 
-    newPosts = [ {...newPost, id: newPosts.length + 1}, ...newPosts];
 </script>
 
-<div>
-  <textarea bind:value={newPost.title} placeholder='Title'/>
-  <br/>
-  <textarea bind:value={newPost.description}  placeholder="Enter your post here...."/>
-  <button on:click={savePost}>Post</button>
+<div class="middlebar">
+  {#each posts as post (post.id)}
+    <div class="post" on:click={()=>showPostDetails(post.id)}>
+      <div class="postHeader">
+        <img src={post.user.avathar} alt={post.user.username}/>
+        <div>{post.user.name}</div>
+        <div>. {post.postedOn}</div>
+      </div>
+      <h2>{post.title}</h2>
+      <p>{post.description.substring(0, 200)}...</p>
+    </div>
+  {:else}
+    <p>Nothing To Show</p>
+  {/each}
 </div>
 
-<h1>Posts</h1>
-{#each newPosts as post (post.id)}
-  <div on:click={()=>showPostDetails(post.id)}>
-    <h2>{post.title}</h2>
-    <p>{post.description.substring(0, 200)}...</p>
-  </div>
-{:else}
-  <p>Nothing To Show</p>
-{/each}
-
 <style>
-  textarea {
-		padding: 0.5em;
-		border-radius: 4px;
-	}
-  button {
-    margin-left: 80%;
-    width: 8rem;
-  }
-  div {
-    border: 1px solid white;
+  .post {
+    border-bottom: 0.1px solid #165f7e;
     margin: 2rem;
-    border-radius: 8px;
-    text-align: left;
-    padding: 1rem;
     cursor: pointer;
+  }
+  .postHeader {
+    display: flex;
+  }
+  .postHeader > img {
+    border-radius: 50%;
+    width: 3%;
+  }
+  .postHeader > div {
+    align-self: center;
+    font-size: 75%;
+    margin-left: 0.5vw;
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: 700;
+  }
+
+  .postHeader > div + div {
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.5);
   }
 </style>

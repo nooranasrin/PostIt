@@ -1,21 +1,26 @@
 <script>
-  import { Router, Route, Link } from "svelte-navigator";
+  import { Router, Route } from "svelte-navigator";
+  import Header from "./lib/Header.svelte";
   import Home from './lib/Home.svelte';
   import Post from "./lib/Post.svelte";
   import Profile from "./lib/Profile.svelte";
+  import Search from "./lib/Search.svelte";
 </script>
 
 <Router>
-  <header>
-    <nav>
-      <Link to="/">Home</Link>
-      <Link to="profile">Profile</Link>
-    </nav>
-  </header>
-
-  <main>
-    <Route path="/"><Home/></Route>
-    <Route path="post/:id"><Post/></Route>
-    <Route path="profile"><Profile/></Route>
-  </main>
+  <div style="display: flex;">
+   <Header/>
+    <main>
+      <Route path="/"><Home/></Route>
+      <Route path="post/:id"><Post/></Route>
+      <Route path="profile"><Profile/></Route>
+    </main>
+    <Search/>
+  </div>
 </Router>
+
+<style>
+  main {
+    width: 55%;
+  }
+</style>

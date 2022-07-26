@@ -6,8 +6,10 @@
     const post = posts.find(post => post.id === +$params.id);
 </script>
 
-<h1>{post.title}</h1>
-<p>{post.description}</p>
+<div class="middlebar">
+  <h1>{post.title}</h1>
+  <p>{post.description}</p>
+</div>
 
 <style>
   p {
