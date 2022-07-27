@@ -12,7 +12,8 @@
    <Header/>
     <main>
       <Route path="/"><Home/></Route>
-      <Route path="post/:id"><Post/></Route>
+      <Route path="/feed/:category" let:params><Home category={params.category}/></Route>
+      <Route path="post/:id" let:params><Post id={params.id}/></Route>
       <Route path="profile"><Profile/></Route>
     </main>
     <Search/>

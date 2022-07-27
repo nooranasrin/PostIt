@@ -1,9 +1,8 @@
 <script>
-    import {useParams} from 'svelte-navigator';
-    import posts from '../mocks/posts.json'
+    import posts from '../mocks/recommendedPosts.json'
 
-    const params = useParams();
-    const post = posts.find(post => post.id === +$params.id);
+    export let id;
+    const post = posts.find(post => post.id === +id);
 </script>
 
 <div class="middlebar">

@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-family: charter, Georgia, Cambria, 'Times New Roman', Times, serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
@@ -54,6 +54,7 @@ div.sidebar {
   position: relative;
   padding: 1rem;
   text-align: left;
+  margin: 2rem;
 }
 
 button {
