@@ -2,10 +2,10 @@
   import {
       useNavigate
   } from "svelte-navigator";
-  
+
   export let post = {};
   const navigate = useNavigate();
-  
+
   const showPostDetails = id => navigate(`/post/${id}`, )
 </script>
 
@@ -39,18 +39,18 @@
     align-self: center;
   }
 
-  .header>img {
+  .header > img {
     border-radius: 50%;
     width: 3%;
   }
 
-  .header>div {
+  .header > div {
     font-size: 80%;
     margin-left: 0.5vw;
     font-weight: 700;
   }
 
-  .header>div+div {
+  .header > div + div {
     font-weight: 400;
   }
 
