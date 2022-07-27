@@ -29,14 +29,14 @@
   </header>
   {#each posts as post (post.id)}
     <div class="post" on:click|stopPropagation={()=>showPostDetails(post.id)}>
-      <div class="postHeader">
+      <div class="header">
         <img src={post.user.avathar} alt={post.user.username}/>
         <div>{post.user.name}</div>
         <div>. {post.postedOn}</div>
       </div>
       <h2>{post.title}</h2>
       <p>{post.description.substring(0, 200)}...</p>
-      <div class='postFooter'>
+      <div class='header'>
         <div class='tag'>{post.tag}</div>
         <div>3 min read</div>
         <div><span>. &nbsp;</span> Selected for you</div>
@@ -61,8 +61,6 @@
   header a {
     padding-bottom: 1vh;
     width: 50%;
-    text-align: center;
-    color:  #165f7e;
   }
 
   .active {
@@ -73,37 +71,25 @@
     cursor: pointer;
     margin-bottom: 2vh;
   }
-  .postHeader {
+  .header {
     display: flex;
+    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-bottom: 2%;
+    color: rgba(0, 0, 0, 0.5);
+    align-self: center;
   }
-  .postHeader > img {
+  .header > img {
     border-radius: 50%;
     width: 3%;
   }
-  .postHeader > div {
-    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    align-self: center;
-    font-size: 75%;
+  .header > div {
+    font-size: 80%;
     margin-left: 0.5vw;
-    color: rgba(0, 0, 0, 0.6);
     font-weight: 700;
   }
 
-  .postHeader > div + div {
+  .header > div + div {
     font-weight: 400;
-    color: rgba(0, 0, 0, 0.5);
-  }
-
-  .postFooter {
-    display: flex;
-    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: rgba(0, 0, 0, 0.5);
-    margin-bottom: 2%;
-  }
-  
-  .postFooter > div + div {
-    font-size: 80%;
-    margin-left: 0.5vw;
   }
 
   .tag {
@@ -112,5 +98,6 @@
     text-align: center;
     font-size: 75%;
     padding: 0.1vh 0.3vw 0.1vh 0.3vw;
+    margin-left: 0 !important;
   }
 </style>
