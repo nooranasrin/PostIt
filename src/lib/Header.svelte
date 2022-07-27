@@ -1,19 +1,22 @@
 <script>
-  import { Link } from "svelte-navigator";
   import postItIcon from "../assets/postIt.png";
   import home from "../assets/home.png";
   import profile from "../assets/profile.png";
+  import newPost from "../assets/newPost.png";
 </script>
 
 <header class="sidebar">
   <img class="logo" src={postItIcon} alt=""/>
   <nav>
-    <Link to="/">
+    <a href="/">
       <img class="category" src={home} alt=""/>
-    </Link>
-    <Link to="profile">
+    </a>
+    <a href="profile">
       <img class="category" src={profile} alt=""/>
-    </Link>
+    </a>
+    <a href="/newPost">
+      <img class="category" src={newPost} alt=""/>
+    </a>
   </nav>
 </header>
 
